@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
-import scienceplots
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 
-def science_fig(style="science", grid=True, scale=1.0, aspect_ratio=6/8, textwidth=7.285):
+def science_fig(grid=True, scale=1.0, aspect_ratio=6/8, textwidth=7.285):
     """
     Creates a figure using scientific styles.
 
@@ -17,20 +16,21 @@ def science_fig(style="science", grid=True, scale=1.0, aspect_ratio=6/8, textwid
     Returns:
     - fig: matplotlib figure object
     """
-    styles = [style]
-    if grid:
-        styles.append("grid")
-
-    plt.style.use(styles)
 
     width = textwidth * scale
     height = width * aspect_ratio
-
+    plt.style.use('seaborn-v0_8') 
+    
     plt.rcParams.update({
+        "font.family": "serif",
         'font.size': 15,
         'axes.labelsize': 14,
         'xtick.labelsize': 14,
-        'ytick.labelsize': 14
+        'ytick.labelsize': 14,
+        "axes.grid": True,
+        "grid.alpha": 0.4,
+        "axes.spines.top": False,
+        "axes.spines.right": False
     })
 
     fig = plt.figure(figsize=(width, height))

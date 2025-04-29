@@ -4,11 +4,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-mpl.rcParams['text.usetex'] = False
 
 
-import scienceplots
 from sklearn.linear_model import LogisticRegression
 from matplotlib.colors import ListedColormap
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
@@ -19,8 +16,7 @@ from tools.plot_helper import *
 from tools.corrupt_labels import *
 from tools.calc_metrics import *
 
-# Set global plot style
-plt.style.use(["science", "grid"])
+# 
 
 # --------------------------
 # Streamlit App Start
@@ -108,11 +104,15 @@ ax.plot(df_sorted["MD_corr"], df_sorted["BER_corr"], color="forestgreen", linest
 ax.scatter(results["MD_corr"], results["BER_corr"], c=lambda_norm, cmap=green_cmap, label="Corrupted", s=50, marker="s", alpha=0.5)
 ax.scatter(results["MD_clean"], results["BER_clean"], c=lambda_norm, cmap=orange_cmap, label="Clean", linewidths=0.2, s=65)
 
+
 ax.set_xlabel("MD (Mean Distance)")
 ax.set_ylabel("Balanced Error")
 ax.set_xlim(-0.55, 0.05)
 ax.set_ylim(0.2, 0.6)
-ax.legend(loc='upper left')
+legend = ax.legend(loc='upper left', facecolor='white', framealpha=1.0, edgecolor='black')
+legend.get_frame().set_facecolor('white')
+legend.get_frame().set_alpha(1.0)
+legend.get_frame().set_edgecolor('black')
 fig.tight_layout()
 
 st.pyplot(fig)
