@@ -4,12 +4,15 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = False
+
+
 import scienceplots
 from sklearn.linear_model import LogisticRegression
 from matplotlib.colors import ListedColormap
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
-import matplotlib as mpl
-mpl.rcParams['text.usetex'] = False
+
 
 from tools.gen_synth_data import *
 from tools.plot_helper import *
