@@ -10,12 +10,10 @@ from matplotlib.colors import ListedColormap
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import sys
 
-# Your helper imports
-sys.path.insert(1, '/home/ptr@itd.local/code/fairness_triangle/tools')  # Update if needed
-from gen_synth_data import *
-from plot_helper import *
-from corrupt_labels import *
-from calc_metrics import *
+from tools.gen_synth_data import *
+from tools.plot_helper import *
+from tools.corrupt_labels import *
+from tools.calc_metrics import *
 
 # Set global plot style
 plt.style.use(["science", "grid"])
